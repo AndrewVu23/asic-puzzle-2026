@@ -1,0 +1,14 @@
+1445 cycles, 11 scenarios
+format: {rst_n, enable, I, O[7:0], success}
+
+       0 ..    131  reset 7 characters into the message
+     132 ..    263  reset 7 characters into the message
+     264 ..    392  reset 4 characters into the message
+     393 ..    520  reset 3 characters into the message
+     521 ..    649  reset 4 characters into the message
+     650 ..    778  reset 4 characters into the message
+     779 ..    906  reset 3 characters into the message
+     907 ..   1033  reset 2 characters into the message
+    1034 ..   1163  reset 5 characters into the message
+    1164 ..   1295  reset 7 characters into the message
+    1296 ..   1444  then a clean attempt

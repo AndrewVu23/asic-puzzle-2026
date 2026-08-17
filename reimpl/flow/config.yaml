@@ -1,0 +1,47 @@
+# LibreLane flow for the Star Battle validator re-implementation.
+#
+# Run:  nix run github:librelane/librelane -- flow/config.yaml
+#   or: librelane flow/config.yaml   (inside the LibreLane nix shell)
+#
+# The design is small and slack-comfortable; nothing here is tuned aggressively,
+# because the point is a clean, reproducible RTL-to-GDS run rather than a record.
+
+DESIGN_NAME: puzzle
+
+VERILOG_FILES:
+  - dir::../rtl/region_map.v
+  - dir::../rtl/puzzle.v
+
+CLOCK_PORT: clk
+# The original chip's target frequency is unknown, so this is our choice, not a
+# recovered fact. 12 ns closes every corner including slow (ss_100C_1v60); 10 ns
+# leaves ~0.3 ns of setup violation there. The critical path is a register-to-
+# output-port path: the total-star-count comparison feeding the message decode and
+# out through O. The original pipelines this by registering its output byte, and
+# rtl/variants/puzzle_regout.v reproduces that, but doing so moves the counts-ok
+# reduction in front of the new flop and misses slow-corner setup at every period.
+CLOCK_PERIOD: 12.0
+
+FP_CORE_UTIL: 40
+PL_TARGET_DENSITY_PCT: 50
+
+# Place the pins the way the original chip does: inputs west, outputs east.
+IO_PIN_ORDER_CFG: dir::pin_order.cfg
+
+RUN_HEURISTIC_DIODE_INSERTION: true
+
+# Let the resizer clean up transition times after global routing.
+RUN_POST_GRT_RESIZER_TIMING: true
+
+# By default the resizer only repairs the default (typical) corner, which leaves
+# max-slew violations in the slow corner untouched. Repair against slow as well.
+RSZ_CORNERS:
+  - nom_tt_025C_1v80
+  - nom_ss_100C_1v60
+
+# Left at defaults deliberately. Promoting max-slew to a flow-failing check was tried
+# and reverted: ~117 pins miss LibreLane's 0.75 ns transition target in the slow corner
+# only, worst case 0.99 ns -- comfortably inside the PDK's own 1.5 ns max_transition.
+# Tightening MAX_FANOUT_CONSTRAINT to 6 and zeroing the repair margins did not shift
+# either number, so the honest outcome is a documented warning rather than a knob
+# turned until the report went green.

@@ -1,0 +1,111 @@
+17498 cycles, 108 scenarios
+format: {rst_n, enable, I, O[7:0], success}
+
+       0 ..    311  vendor example_inputs.vcd
+     312 ..    460  winning placement -> (* TWO STARS *)
+     461 ..    609  empty board -> EMPTY SKY
+     610 ..    758  single star -> TRY AGAIN
+     759 ..    907  completely full board -> BIG BANG
+     908 ..   1056  one cell short of full -> TRY AGAIN
+    1057 ..   1205  relocation 0: (9,5) -> (7,9)
+    1206 ..   1354  relocation 1: (9,8) -> (2,10)
+    1355 ..   1503  relocation 2: (9,5) -> (7,7)
+    1504 ..   1652  relocation 3: (10,3) -> (0,1)
+    1653 ..   1801  relocation 4: (3,2) -> (9,3)
+    1802 ..   1950  relocation 5: (3,2) -> (7,0)
+    1951 ..   2099  relocation 6: (10,3) -> (1,10)
+    2100 ..   2248  relocation 7: (9,8) -> (7,5)
+    2249 ..   2397  relocation 8: (3,2) -> (7,8)
+    2398 ..   2546  relocation 9: (1,5) -> (9,9)
+    2547 ..   2695  relocation 10: (9,5) -> (5,3)
+    2696 ..   2844  relocation 11: (6,4) -> (6,0)
+    2845 ..   2993  relocation 12: (2,9) -> (9,4)
+    2994 ..   3142  relocation 13: (1,5) -> (8,2)
+    3143 ..   3291  relocation 14: (0,9) -> (8,0)
+    3292 ..   3440  relocation 15: (8,3) -> (4,2)
+    3441 ..   3589  relocation 16: (9,5) -> (8,1)
+    3590 ..   3738  relocation 17: (3,0) -> (5,7)
+    3739 ..   3887  relocation 18: (0,7) -> (6,8)
+    3888 ..   4036  relocation 19: (10,3) -> (9,4)
+    4037 ..   4185  relocation 20: (1,0) -> (6,7)
+    4186 ..   4334  relocation 21: (1,0) -> (5,0)
+    4335 ..   4483  relocation 22: (0,9) -> (5,3)
+    4484 ..   4632  relocation 23: (3,2) -> (9,6)
+    4633 ..   4781  relocation 24: (5,2) -> (0,0)
+    4782 ..   4930  rectangle swap 0
+    4931 ..   5079  rectangle swap 1
+    5080 ..   5228  rectangle swap 2
+    5229 ..   5377  rectangle swap 3
+    5378 ..   5526  rectangle swap 4
+    5527 ..   5675  rectangle swap 5
+    5676 ..   5824  rectangle swap 6
+    5825 ..   5973  rectangle swap 7
+    5974 ..   6122  rectangle swap 8
+    6123 ..   6271  rectangle swap 9
+    6272 ..   6420  rectangle swap 10
+    6421 ..   6569  rectangle swap 11
+    6570 ..   6718  rectangle swap 12
+    6719 ..   6867  rectangle swap 13
+    6868 ..   7016  rectangle swap 14
+    7017 ..   7165  rectangle swap 15
+    7166 ..   7314  rectangle swap 16
+    7315 ..   7463  rectangle swap 17
+    7464 ..   7612  rectangle swap 18
+    7613 ..   7761  rectangle swap 19
+    7762 ..   7910  rectangle swap 20
+    7911 ..   8059  rectangle swap 21
+    8060 ..   8208  rectangle swap 22
+    8209 ..   8357  rectangle swap 23
+    8358 ..   8506  rectangle swap 24
+    8507 ..   8655  random placement 0
+    8656 ..   8804  random placement 1
+    8805 ..   8953  random placement 2
+    8954 ..   9102  random placement 3
+    9103 ..   9251  random placement 4
+    9252 ..   9400  random placement 5
+    9401 ..   9549  random placement 6
+    9550 ..   9698  random placement 7
+    9699 ..   9847  random placement 8
+    9848 ..   9996  random placement 9
+    9997 ..  10145  random placement 10
+   10146 ..  10294  random placement 11
+   10295 ..  10443  random placement 12
+   10444 ..  10592  random placement 13
+   10593 ..  10741  random placement 14
+   10742 ..  10890  random placement 15
+   10891 ..  11039  random placement 16
+   11040 ..  11188  random placement 17
+   11189 ..  11337  random placement 18
+   11338 ..  11486  random placement 19
+   11487 ..  11635  random placement 20
+   11636 ..  11784  random placement 21
+   11785 ..  11933  random placement 22
+   11934 ..  12082  random placement 23
+   12083 ..  12231  random placement 24
+   12232 ..  12400  bits past the 121st are ignored
+   12401 ..  12549  enable held low throughout
+   12550 ..  12709  leading blank row misaligns the grid
+   12710 ..  12875  enable stalls mid-grid then resumes
+   12876 ..  13024  enable drops during the message
+   13025 ..  13227  reset re-arms after an aborted attempt
+   13228 ..  13674  three attempts back to back
+   13675 ..  13863  random attempt 0 with stalls
+   13864 ..  14047  random attempt 1 with stalls
+   14048 ..  14233  random attempt 2 with stalls
+   14234 ..  14417  random attempt 3 with stalls
+   14418 ..  14613  random attempt 4 with stalls
+   14614 ..  14804  random attempt 5 with stalls
+   14805 ..  14998  random attempt 6 with stalls
+   14999 ..  15179  random attempt 7 with stalls
+   15180 ..  15366  random attempt 8 with stalls
+   15367 ..  15556  random attempt 9 with stalls
+   15557 ..  15754  random attempt 10 with stalls
+   15755 ..  15948  random attempt 11 with stalls
+   15949 ..  16140  random attempt 12 with stalls
+   16141 ..  16326  random attempt 13 with stalls
+   16327 ..  16526  random attempt 14 with stalls
+   16527 ..  16714  random attempt 15 with stalls
+   16715 ..  16915  random attempt 16 with stalls
+   16916 ..  17114  random attempt 17 with stalls
+   17115 ..  17303  random attempt 18 with stalls
+   17304 ..  17497  random attempt 19 with stalls

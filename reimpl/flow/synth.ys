@@ -1,0 +1,22 @@
+# Standalone yosys synthesis of the re-implementation to sky130 standard cells.
+# LibreLane runs its own (more elaborate) synthesis; this exists so the design can
+# be checked at gate level independently of the full flow.
+
+read_verilog rtl/region_map.v
+read_verilog rtl/puzzle.v
+hierarchy -check -top puzzle
+
+# generic synthesis
+proc; opt
+fsm; opt
+memory; opt
+techmap; opt
+
+# map to the sky130 high-density library
+dfflibmap -liberty $LIBERTY
+abc -liberty $LIBERTY
+setundef -zero
+opt_clean -purge
+
+write_verilog -noattr out/puzzle_synth.v
+stat -liberty $LIBERTY
